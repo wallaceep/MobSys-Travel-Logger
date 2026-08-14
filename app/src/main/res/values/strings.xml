@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Travel-Logger</string>
+    <string name="app_name">Travel Logger</string>
+    <string name="title_home">Travel Journal</string>
+    <string name="subtitle_home">Capture &amp; relive your journeys</string>
+    <string name="no_records_title">No Travel Memories Yet</string>
+    <string name="no_records_subtitle">Tap the \'+\' button to log your first journey!</string>
+    <string name="btn_add_travel">Log New Travel</string>
 </resources>

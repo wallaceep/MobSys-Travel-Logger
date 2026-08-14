@@ -6,4 +6,8 @@
     </style>
 
     <style name="Theme.TravelLogger" parent="Base.Theme.TravelLogger" />
+
+    <style name="ShapeAppearanceOverlay.App.Corner8dp" parent="">
+        <item name="cornerSize">8dp</item>
+    </style>
 </resources>
