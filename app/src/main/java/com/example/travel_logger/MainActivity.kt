@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.travel_logger.adapter.TravelAdapter
 import com.example.travel_logger.model.TravelRecord
+import com.example.travel_logger.repository.TravelRepository
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var fabAddTravel: FloatingActionButton
     private lateinit var tvTripCount: TextView
     private lateinit var travelAdapter: TravelAdapter
+    private lateinit var travelRepository: TravelRepository
     private val travelRecordsList = mutableListOf<TravelRecord>()
 
     private val addTravelLauncher = registerForActivityResult(
@@ -39,9 +41,11 @@ class MainActivity : AppCompatActivity() {
             }
 
             if (record != null) {
-                travelRecordsList.add(0, record)
+                val updatedList = travelRepository.addTravelRecord(record)
+                travelRecordsList.clear()
+                travelRecordsList.addAll(updatedList)
                 updateUIState()
-                Toast.makeText(this, "Travel memory saved!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Travel memory saved permanently!", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -57,9 +61,17 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        travelRepository = TravelRepository(this)
+        loadSavedData()
+
         initViews()
         setupRecyclerView()
         updateUIState()
+    }
+
+    private fun loadSavedData() {
+        travelRecordsList.clear()
+        travelRecordsList.addAll(travelRepository.getTravelRecords())
     }
 
     private fun initViews() {
