@@ -34,8 +34,14 @@
         <activity
             android:name=".AddTravelActivity"
             android:exported="false"
-            android:label="Nova Viagem"
+            android:label="New Memory Log"
             android:windowSoftInputMode="adjustResize" />
+
+        <!-- Activity 3: Travel Record Detail -->
+        <activity
+            android:name=".TravelDetailActivity"
+            android:exported="false"
+            android:label="Travel Details" />
 
     </application>
 

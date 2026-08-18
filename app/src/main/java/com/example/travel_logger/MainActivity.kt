@@ -76,7 +76,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupRecyclerView() {
         travelAdapter = TravelAdapter(travelRecordsList) { record ->
-            Toast.makeText(this, "Selected: ${record.locationName}", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, TravelDetailActivity::class.java).apply {
+                putExtra(TravelDetailActivity.EXTRA_TRAVEL_RECORD, record)
+            }
+            startActivity(intent)
         }
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = travelAdapter

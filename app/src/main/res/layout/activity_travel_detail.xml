@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainTravelDetail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_main"
+    tools:context=".TravelDetailActivity">
+
+    <!-- Modernist Hero Header Banner -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="6dp"
+        app:strokeWidth="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/slate_900"
+            android:padding="20dp">
+
+            <!-- Back Button Container -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardBtnBackDetail"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                app:cardCornerRadius="14dp"
+                app:cardBackgroundColor="#26FFFFFF"
+                app:strokeWidth="1dp"
+                app:strokeColor="#33FFFFFF">
+
+                <ImageView
+                    android:id="@+id/btnBackDetailHeader"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@android:drawable/ic_menu_revert"
+                    app:tint="@color/white" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Header Titles -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/cardBtnBackDetail"
+                android:layout_marginStart="16dp"
+                android:layout_centerVertical="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Travel Memory Detail"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:letterSpacing="-0.01" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Full details &amp; Google Maps location"
+                    android:textSize="12sp"
+                    android:textColor="#A5B4FC" />
+            </LinearLayout>
+
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="24dp">
+
+            <!-- Hero Photo Banner Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="4dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/border_subtle">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivDetailPhoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:background="#F1F5F9"
+                    android:src="@android:drawable/ic_menu_camera" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Title & Rating Header Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="3dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/border_subtle"
+                app:cardBackgroundColor="@color/card_bg">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tvDetailLocationName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toStartOf="@id/tvDetailRatingPill"
+                            android:layout_marginEnd="12dp"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_title"
+                            tools:text="Modernist Art Museum" />
+
+                        <TextView
+                            android:id="@+id/tvDetailRatingPill"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:background="#15F59E0B"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="6dp"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="#D97706"
+                            tools:text="★ 4.8" />
+                    </RelativeLayout>
+
+                    <!-- Interactive Custom Rating Stars Display -->
+                    <com.example.travel_logger.view.CustomRatingBar
+                        android:id="@+id/customRatingBarDetail"
+                        android:layout_width="220dp"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="12dp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- GPS Coordinates Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="3dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/border_subtle"
+                app:cardBackgroundColor="@color/card_bg">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="GPS Coordinates"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_title" />
+
+                    <TextView
+                        android:id="@+id/tvDetailGpsCoordinates"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:textSize="15sp"
+                        android:textColor="@color/text_body"
+                        tools:text="Latitude: -19.9167 | Longitude: -43.9345" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Travel Notes & Memory Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="3dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/border_subtle"
+                app:cardBackgroundColor="@color/card_bg">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Travel Notes &amp; Memory"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_title" />
+
+                    <TextView
+                        android:id="@+id/tvDetailNotes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_body"
+                        android:lineSpacingExtra="3dp"
+                        tools:text="Beautiful modernist building with rich history and vibrant pour-over coffee scene." />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Primary Action Button: Open in Google Maps (Implicit Intent) -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnOpenGoogleMaps"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp"
+                android:text="Open Location in Google Maps"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cornerRadius="18dp"
+                app:icon="@android:drawable/ic_menu_mapmode"
+                app:backgroundTint="@color/accent_emerald"
+                app:elevation="4dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
